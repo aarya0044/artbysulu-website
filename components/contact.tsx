@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Instagram, Facebook, Twitter } from "lucide-react"
+import { Mail, MapPin, Instagram, Facebook, Twitter } from "lucide-react"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -109,18 +109,18 @@ export default function Contact() {
             <Card className="shadow-lg">
               <CardContent className="p-8">
                 <h3 className="text-xl font-medium text-gray-800 mb-6">Get in Touch</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Interested in purchasing a painting or commissioning a custom artwork? Reach out to Sulakshana to
+                  explore her portfolio or discuss collaborations.
+                </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Mail className="h-5 w-5 text-amber-600" />
-                    <span className="text-gray-600">hello@artbysulu.com</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="h-5 w-5 text-amber-600" />
-                    <span className="text-gray-600">+1 (555) 123-4567</span>
+                    <span className="text-gray-600">artistsulu@gmail.com</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <MapPin className="h-5 w-5 text-amber-600" />
-                    <span className="text-gray-600">Seattle, Washington</span>
+                    <span className="text-gray-600">Pune, Maharashtra, India</span>
                   </div>
                 </div>
               </CardContent>
@@ -131,18 +131,28 @@ export default function Contact() {
                 <h3 className="text-xl font-medium text-gray-800 mb-6">Follow My Work</h3>
                 <div className="flex gap-4">
                   <Button
+                    asChild
                     variant="outline"
                     size="icon"
                     className="hover:bg-amber-600 hover:text-white hover:border-amber-600 bg-transparent"
                   >
-                    <Instagram className="h-5 w-5" />
+                    <a
+                      href="https://www.instagram.com/sulakshanadharmadhikari/?hl=en"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Instagram className="h-5 w-5" />
+                    </a>
                   </Button>
                   <Button
+                    asChild
                     variant="outline"
                     size="icon"
                     className="hover:bg-amber-600 hover:text-white hover:border-amber-600 bg-transparent"
                   >
-                    <Facebook className="h-5 w-5" />
+                    <a href="https://www.facebook.com/renu.dharmadhikari.9/" target="_blank" rel="noopener noreferrer">
+                      <Facebook className="h-5 w-5" />
+                    </a>
                   </Button>
                   <Button
                     variant="outline"
@@ -154,16 +164,6 @@ export default function Contact() {
                 </div>
                 <p className="text-gray-600 mt-4 text-sm">
                   Follow me on social media for studio updates, new works, and behind-the-scenes content.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-lg">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-medium text-gray-800 mb-4">Studio Visits</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Studio visits are available by appointment. I love sharing my process and discussing commissions in
-                  person. Please reach out to schedule a visit to my Seattle studio.
                 </p>
               </CardContent>
             </Card>

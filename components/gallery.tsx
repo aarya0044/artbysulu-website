@@ -9,28 +9,20 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react"
 
 const artworkSeries = [
   {
-    title: "Nature Studies",
+    title: "Nature's Basket",
     works: [
-      { id: 1, title: "Forest Light", medium: "Oil on canvas", year: "2024", size: "24x36" },
-      { id: 2, title: "Mountain Mist", medium: "Pastel", year: "2024", size: "18x24" },
+      { id: 1, title: "Lotus Garden", medium: "Oil on canvas", year: "2024", size: "36x36" },
+      { id: 2, title: "Lotus and Butterfly", medium: "Oil on canvas", year: "2024", size: "18x24" },
       { id: 3, title: "River Bend", medium: "Oil on canvas", year: "2023", size: "30x40" },
-      { id: 4, title: "Autumn Path", medium: "Pastel", year: "2023", size: "16x20" },
+      { id: 4, title: "Autumn Path", medium: "Oil on canvas", year: "2023", size: "16x20" },
     ],
   },
   {
-    title: "Urban Landscapes",
+    title: "Buddha",
     works: [
-      { id: 5, title: "City Dawn", medium: "Oil on canvas", year: "2024", size: "36x48" },
-      { id: 6, title: "Street Corner", medium: "Pastel", year: "2024", size: "20x24" },
-      { id: 7, title: "Neon Reflections", medium: "Oil on canvas", year: "2023", size: "24x30" },
-    ],
-  },
-  {
-    title: "Portraits",
-    works: [
-      { id: 8, title: "Contemplation", medium: "Oil on canvas", year: "2024", size: "16x20" },
-      { id: 9, title: "The Dreamer", medium: "Pastel", year: "2023", size: "18x24" },
-      { id: 10, title: "Silent Strength", medium: "Oil on canvas", year: "2023", size: "20x24" },
+      { id: 5, title: "Meditation", medium: "Oil on canvas", year: "2024", size: "36x48" },
+      { id: 6, title: "Enlightenment", medium: "Oil on canvas", year: "2024", size: "20x24" },
+      { id: 7, title: "Inner Peace", medium: "Oil on canvas", year: "2023", size: "24x30" },
     ],
   },
 ]
@@ -102,7 +94,23 @@ export default function Gallery() {
             <CardContent className="p-0">
               <div className="relative aspect-[4/5] overflow-hidden">
                 <Image
-                  src={`/placeholder.svg?height=600&width=480`}
+                  src={
+                    work.id === 1
+                      ? "/lotus-garden.jpg"
+                      : work.id === 2
+                        ? "/butterfly-flowers.jpg"
+                        : work.id === 3
+                          ? "/lotus-pond-large.jpg"
+                          : work.id === 4
+                            ? "/white-flowers-butterflies.jpg"
+                            : work.id === 5
+                              ? "/buddha-1.jpg"
+                              : work.id === 6
+                                ? "/buddha-2.jpg"
+                                : work.id === 7
+                                  ? "/buddha-3.jpg"
+                                  : `/placeholder.svg?height=600&width=480`
+                  }
                   alt={work.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"

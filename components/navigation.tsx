@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,12 +20,12 @@ export default function Navigation() {
   }, [])
 
   const navItems = [
-    { href: "#home", label: "Home" },
-    { href: "#gallery", label: "Gallery" },
-    { href: "#prints", label: "Prints" },
-    { href: "#about", label: "About" },
-    { href: "#press", label: "Press/Exhibitions" },
-    { href: "#contact", label: "Contact" },
+    { href: "/", label: "Home" },
+    { href: "/#gallery", label: "Gallery" },
+    { href: "/#prints", label: "Works" },
+    { href: "/about", label: "About" },
+    { href: "/about#press", label: "Press/Exhibitions" },
+    { href: "/about#contact", label: "Contact" },
   ]
 
   return (
@@ -32,9 +34,12 @@ export default function Navigation() {
         scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link href="#home" className="text-2xl font-light text-gray-800">
+      <div className="max-w-7xl mx-auto px-4 bg-slate-900">
+        <div className="flex items-center justify-between h-16 bg-transparent">
+          <Link
+            href="/"
+            className="text-2xl font-light border-2 border-transparent bg-transparent text-slate-300 italic font-sans"
+          >
             Art by Sulu
           </Link>
 
@@ -44,7 +49,7 @@ export default function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-amber-600 transition-colors duration-200 font-medium"
+                className="hover:text-amber-600 transition-colors duration-200 font-medium border-transparent border-4 px-0 py-0 mx-0 mt-0 opacity-75 rounded-md text-white bg-transparent"
               >
                 {item.label}
               </Link>

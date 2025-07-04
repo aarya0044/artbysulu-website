@@ -4,10 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Navigation from "@/components/navigation"
 import Gallery from "@/components/gallery"
-import About from "@/components/about"
 import Prints from "@/components/prints"
-import Press from "@/components/press"
-import Contact from "@/components/contact"
 
 export default function HomePage() {
   return (
@@ -17,18 +14,23 @@ export default function HomePage() {
       {/* Hero Section */}
       <section id="home" className="relative h-screen w-full overflow-hidden">
         <Image
-          src="/placeholder.svg?height=1080&width=1920"
-          alt="Signature artwork by Sulu"
+          src="/hero-artwork.jpg"
+          alt="Signature artwork by Sulu featuring lotus flowers and butterflies"
           fill
-          className="object-cover"
+          className="object-cover object-center"
+          style={{ objectPosition: "center 20%" }}
           priority
         />
         <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center pt-16">
           <div className="text-center text-white">
-            <h1 className="text-6xl md:text-8xl font-light tracking-wide mb-4">Art by Sulu</h1>
-            <p className="text-xl md:text-2xl font-light opacity-90">Contemporary paintings & pastels</p>
-            <Button asChild className="mt-8 bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 text-lg">
+            <h1 className="text-6xl font-light tracking-wide mb-4 opacity-100 bg-transparent md:text-7xl">
+              Glimpse of Nature
+            </h1>
+            <p className="text-xl font-light opacity-90 leading-6 md:text-xl">
+              {"Contemporary paintings by-Sulakshana Dharmadhikari"}{" "}
+            </p>
+            <Button asChild className="mt-16 hover:bg-amber-700 px-8 py-3 text-lg bg-slate-300 text-slate-500">
               <Link href="#gallery">View Gallery</Link>
             </Button>
           </div>
@@ -52,16 +54,46 @@ export default function HomePage() {
             >
               <CardContent className="p-0">
                 <div className="relative aspect-[4/5] overflow-hidden">
-                  <Image
-                    src={`/placeholder.svg?height=600&width=480`}
-                    alt={`Featured artwork ${i}`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  {i === 1 ? (
+                    <Image
+                      src="/lotus-pond.jpg"
+                      alt="Lotus Pond - Oil on canvas by Sulakshana"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : i === 2 ? (
+                    <Image
+                      src="/lotus-butterflies.jpg"
+                      alt="Lotus with Butterflies - Oil on canvas by Sulakshana"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <Image
+                      src="/water-lilies.jpg"
+                      alt="Water Lilies - Oil on canvas by Sulakshana"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-medium text-gray-800 mb-2">Untitled Series {i}</h3>
-                  <p className="text-gray-600">Oil on canvas, 2024</p>
+                  {i === 1 ? (
+                    <>
+                      <h3 className="text-xl font-medium text-gray-800 mb-2">Lotus Pond</h3>
+                      <p className="text-gray-600">Oil on canvas, 36x60"</p>
+                    </>
+                  ) : i === 2 ? (
+                    <>
+                      <h3 className="text-xl font-medium text-gray-800 mb-2">Lotus with Butterflies</h3>
+                      <p className="text-gray-600">Oil on canvas, 30x54"</p>
+                    </>
+                  ) : (
+                    <>
+                      <h3 className="text-xl font-medium text-gray-800 mb-2">Water Lilies</h3>
+                      <p className="text-gray-600">Oil on canvas, 24x36"</p>
+                    </>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -80,10 +112,20 @@ export default function HomePage() {
       </section>
 
       <Gallery />
-      <About />
       <Prints />
-      <Press />
-      <Contact />
+
+      {/* Navigation to About Page */}
+      <section className="py-20 px-4 bg-slate-300">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-light text-gray-800 mb-6">Learn More About the Artist</h2>
+          <p className="text-lg text-gray-600 mb-8">
+            Discover Sulakshana's artistic journey, exhibitions, and get in touch for commissions
+          </p>
+          <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 text-lg">
+            <Link href="/about">About & Contact</Link>
+          </Button>
+        </div>
+      </section>
     </div>
   )
 }
